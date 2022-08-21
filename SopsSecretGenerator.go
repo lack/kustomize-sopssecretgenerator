@@ -57,6 +57,7 @@ type SopsSecretGenerator struct {
 	ObjectMeta            `json:"metadata" yaml:"metadata"`
 	EnvSources            []string `json:"envs" yaml:"envs"`
 	FileSources           []string `json:"files" yaml:"files"`
+	Literals              kvMap    `json:"literals" yaml:"literals"`
 	Behavior              string   `json:"behavior,omitempty" yaml:"behavior,omitempty"`
 	DisableNameSuffixHash bool     `json:"disableNameSuffixHash,omitempty" yaml:"disableNameSuffixHash,omitempty"`
 	Type                  string   `json:"type,omitempty" yaml:"type,omitempty"`
@@ -259,6 +260,10 @@ func parseInput(input SopsSecretGenerator) (kvMap, error) {
 	if err != nil {
 		return nil, err
 	}
+	err = parseLiterals(input.Literals, data)
+	if err != nil {
+		return nil, err
+	}
 	return data, nil
 }
 
@@ -410,4 +415,11 @@ func parseFileName(source string) (key string, fn string, err error) {
 	default:
 		return "", "", errors.New("key names or file paths cannot contain '='")
 	}
+}
+
+func parseLiterals(literals, data kvMap) error {
+	for k, v := range literals {
+		data[k] = base64.StdEncoding.EncodeToString([]byte(v))
+	}
+	return nil
 }
