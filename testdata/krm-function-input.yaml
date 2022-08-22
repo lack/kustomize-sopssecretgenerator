@@ -29,3 +29,11 @@ items:
   disableNameSuffixHash: true
   envs:
     - testdata/vars.env
+- apiVersion: goabout.com/v1beta1
+  kind: SopsSecretGenerator
+  metadata:
+    name: secret-from-literal
+  disableNameSuffixHash: true
+  literals:
+    username: aladdin
+    password: abu5fr13nd

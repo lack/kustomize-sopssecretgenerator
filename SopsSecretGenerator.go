@@ -36,6 +36,7 @@ var stripAnnotations = map[string]bool{
 }
 
 type kvMap map[string]string
+type objData map[string]interface{}
 
 // TypeMeta defines the resource type
 type TypeMeta struct {
@@ -49,6 +50,11 @@ type ObjectMeta struct {
 	Namespace   string `json:"namespace,omitempty" yaml:"namespace,omitempty"`
 	Labels      kvMap  `json:"labels,omitempty" yaml:"labels,omitempty"`
 	Annotations kvMap  `json:"annotations,omitempty" yaml:"annotations,omitempty"`
+}
+
+type SopsObject struct {
+	TypeMeta `json:",inline" yaml:",inline"`
+	Sops     *objData `json:"sops,omitempty" yaml:"sops,omitempty"`
 }
 
 // SopsSecretGenerator is a generator for Secrets
@@ -159,6 +165,19 @@ func generateKRMManifest(rl *fn.ResourceList) (bool, error) {
 }
 
 func processSingleInput(manifestContent []byte) (string, error) {
+	var input SopsObject
+	err := yaml.Unmarshal(manifestContent, &input)
+	if err != nil {
+		return "", err
+	}
+	if input.Sops != nil {
+		// A top-level 'sops' section detected; decrypt it first
+		manifestContent, err = decrypt.Data(manifestContent, "yaml")
+		if err != nil {
+			return "", err
+		}
+	}
+	// The data is now cleartext; process it
 	return processSopsSecretGenerator(manifestContent)
 }
 
@@ -224,7 +243,7 @@ func readFile(fileName string) ([]byte, error) {
 	return content, nil
 }
 
-func readInput(manifestContent []byte) (SopsSecretGenerator, error) {
+func unmarshalSopsSecretGenerator(manifestContent []byte) (SopsSecretGenerator, error) {
 	input := SopsSecretGenerator{
 		TypeMeta: TypeMeta{},
 		ObjectMeta: ObjectMeta{
@@ -233,6 +252,14 @@ func readInput(manifestContent []byte) (SopsSecretGenerator, error) {
 	}
 
 	err := yaml.Unmarshal(manifestContent, &input)
+	if err != nil {
+		return SopsSecretGenerator{}, err
+	}
+	return input, nil
+}
+
+func readInput(manifestContent []byte) (SopsSecretGenerator, error) {
+	input, err := unmarshalSopsSecretGenerator(manifestContent)
 	if err != nil {
 		return SopsSecretGenerator{}, err
 	}

@@ -1,0 +1,34 @@
+apiVersion: goabout.com/v1beta1
+kind: SopsSecretGenerator
+metadata:
+    name: secret
+disableNameSuffixHash: true
+literals:
+    username: ENC[AES256_GCM,data:+0aEUdijwA==,iv:9I0pf/gz5Yx9ppZf+ACc69C5LBtw8qgjKM7TgMaKkvw=,tag:QiOHjV/cHsd+xA+KSPSFiA==,type:str]
+    password: ENC[AES256_GCM,data:/Ir4njpGs7X+dQ==,iv:VirNuHQ9A7r8Fid2yyGROLVGR+ZjVgOfH1ldVE+zhzA=,tag:D5VfQ89Tjpq57UR7IET/6Q==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-08-22T00:26:17Z"
+    mac: ENC[AES256_GCM,data:SjBradolvpXZEmmdeqY/XExUzSkHKHYIDwsziNwSl06jzmoKQMVijcMrrM6VZ7z/vwv90kLsoARx8/1RdWPZi0r65aTluCUerbcGgTjFtfxZ4Vb+SdJK6VIbZZe2k87N6+peEnwnmo/nXNvtpfWWchgNo1lqF0r6qfRZCI7kkFk=,iv:AWzyC9rRHNyrbv0GxqvIUIfhuXaXfF2OttHZMpBdi1w=,tag:3+T6ssMX9RoNMYylZDCc1A==,type:str]
+    pgp:
+        - created_at: "2022-08-22T00:26:17Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQEMA6z+tHR/duVIAQf9HkR3yoKIRw4aE2YdLpxBSniv/vbeHD9fePDeVGubfHT3
+            9+8xpGRcMJ01oxUs4AHBrT7C3dlzjLWSRuBKxTfugfrTi1sSWHUIJyK/jtylzDjG
+            SFFKoZ9sPYrLWkhzxnL0vdqZpMjD9yEZESxSaa4kSQO8gXiZ0qF/GmT8TpsGqh1X
+            Czt1ji2XZeZCIGExyfuR9kw+Ot4G1iGZh40P89YUJ93u/Qs8+Dh4vjMeLdoiUD0u
+            ULhYxyJiJMY7f7Z7PfL3PNrMnVbrZHI8fc2GmsZdheNNCc3iM85c+vXrorPEO4oI
+            o2ISu8M7CZQnEvP1YOON1zaCT7dsXh/S+L6ZeEXbNtJcAQORPuyYe0PJYudpo/zI
+            Y5ZuZqa4fJNk5NYzHU/8ZMmhN8/6rsfB+arE8NoXjy4R6al3MQWTdesEI9wWLTTL
+            ci3jX1edIxQqFmrl+866zp8bePfHMXsoqc1enfs=
+            =vZXt
+            -----END PGP MESSAGE-----
+          fp: 2D2483DF73A3A0FAEE3C2A695BDC395360CE8FF4
+    encrypted_regex: literals
+    version: 3.7.3
