@@ -1,0 +1,36 @@
+apiVersion: ENC[AES256_GCM,data:PhtCBO1Jokei8jNRKCGkwfbp7Q==,iv:4H/glp+AVtayo5wmo0miLcZysCjl12cSiv4eDq+mQa4=,tag:tJdwyfVqZy2IjR3k//jW6A==,type:str]
+kind: ENC[AES256_GCM,data:60U0m9AlBdSXFKSbFh65LPqi1Q==,iv:gO5vtbDtN/qJ6ZZ+p0KCkG+UNVPHM9Wxw1DhHdQotZg=,tag:AWFGln1++dQFLK6p4S3KpQ==,type:str]
+metadata:
+    name: ENC[AES256_GCM,data:XA+g3iXr,iv:oXEouHJ1wNh362E85df1nC6BzUtFUWzE1iy0RKP6C+4=,tag:w71YWfcxZcKx+O4NDBRi/w==,type:str]
+disableNameSuffixHash: ENC[AES256_GCM,data:AMINxw==,iv:jNeUlq4brbX6ot7VeGnfqFZ+76zoagjev5fC8cYfmvI=,tag:3R8LU93mHQsZPdRVeW7Lzw==,type:bool]
+literals:
+    username: ENC[AES256_GCM,data:SrqqRzI=,iv:ACd224zlJFYW8Qn+1zMk0xTZZQWyEzTpTYSOn0riRX4=,tag:F74fih0uu62ImBvjmN0hoQ==,type:str]
+    password: ENC[AES256_GCM,data:ihaLrtBVGXKHk8sa,iv:iKK/oj+/+ii2SmVxOGjZbSsg6MCIqS6KGbXMd4mOK60=,tag:2C68jjM46E4flq1byxYz+Q==,type:str]
+files:
+    - ENC[AES256_GCM,data:uSDw+B7zwAwaySJQ28Wmu8Y=,iv:QtAO2H/oq2YHKjkZ9Y/eAOe6X6wsMZmGLWRQC9uxrqo=,tag:2omLXslHL8Qh43u2BnETvA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-09-07T05:54:04Z"
+    mac: ENC[AES256_GCM,data:t+Qxep2MU+upOi4qp+26KiNZvLJvALV8LTTYFTT0MHdncffEWYsFuYlIHjPDKCWsIAdOFHaFmXVLy3ngKKO39a90HfTJNzi9pmuydYuhbUUvoO/22N6b0nzGIRWk+ppuip9hYBNdsbWdt2ENCAHXvPraTydKEKOJRhNNIlff0cE=,iv:g4K01Z3JR2S2o03cepZpoiTDGkOwy52TKGSnHSNdUnI=,tag:gfhCLpxz2hMPTHSyGKFgjQ==,type:str]
+    pgp:
+        - created_at: "2022-08-26T12:07:14Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQEMA6z+tHR/duVIAQf9HUGhxayOg6F+8B7z7lLjlKI1duQsJSCGGK5xs+r2aff7
+            rWzILn1STq7k/vHlcGSRhz1e0ksKIE1nO7oJ5KwXu1IdwzuD8uQxQhHhU/n6Dv8s
+            Xb6pZ68P8tVKuvw0YlOoYWzM+4ARd9FNeDfKUR7KJ73lOA6ZV3ZPGV3eeO49WZvN
+            GFtpo/1TJNJen3BQslVhp6MdSAt2emSC+9DVBP2zeKeqRyHkECKCzvZQHAf8kbu7
+            H5GLdwgKmTxxPGn/OrC+p2oKDkgQkGjOAJ5NwO/FJdCQax9CzXC/0+73QHpr6Clx
+            qq15/Xo5ZDgSDLZ+txJKnPAsJDqYm22pHBErH7xJU9JeAXNhl6Ef8SlwhWy/0+/U
+            gm7b9hWnNAxIAXAc4uvLPXPugvjlN8HochKkcYJ2Xc4yFhJ9PAdykJ5OoetCo8WF
+            ITY5ceVWG6NZ/n7dwZeBEo3hFIJ1rRcm3sbVOd7YcQ==
+            =NClL
+            -----END PGP MESSAGE-----
+          fp: 2D2483DF73A3A0FAEE3C2A695BDC395360CE8FF4
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
