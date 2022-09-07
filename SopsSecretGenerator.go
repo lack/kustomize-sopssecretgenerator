@@ -177,8 +177,12 @@ func processSingleInput(manifestContent []byte) (string, error) {
 			return "", err
 		}
 	}
-	// The data is now cleartext; process it
-	return processSopsSecretGenerator(manifestContent)
+	if input.APIVersion == apiVersion && (input.Kind == kind || input.Kind == oldKind) {
+		return processSopsSecretGenerator(manifestContent)
+	} else {
+		// Pass-through arbitrary objects
+		return string(manifestContent), nil
+	}
 }
 
 func processSopsSecretGenerator(manifestContent []byte) (string, error) {
